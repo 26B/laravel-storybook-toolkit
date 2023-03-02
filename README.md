@@ -54,7 +54,7 @@ ln -s ./laravel/resources/views/stories ./stories
 
 ### Done
 
-We are now ready to develop stories by placing them on `./stories` folder.
+We are now ready to develop stories by placing them on `./stories` folder. Open your browser on http://localhost:6006 to view them.
 
 Here's an example.
 
@@ -119,6 +119,23 @@ And now we can require the package.
 ./storybook composer require --dev "26b/backstate": "@dev",
 ```
 
+Make sure you add your new path pattern to your tailwind configuration on `./laravel/tailwind.config.js`
+```
+module.exports = {
+  content: [
+    "./resources/**/*.blade.php",
+    "./resources/**/*.js",
+    "./resources/**/*.vue",
+    "./vendor/26b/backstate/resources/views/**/*.blade.php",
+```
+
+Build the assets and run Storybook again.
+
+```bash
+./storybook yarn run build
+
+./storybook php artisan blast:launch
+```
 
 
 ## TODO
