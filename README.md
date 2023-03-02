@@ -8,19 +8,19 @@ Make sure that after you follow the setup instructions, you look at our **Though
 
 We'll be assuming docker and docker-compose are already installed and so the first step is to run our containers in the background.
 
-```
+```bash
 ./storybook up
 ```
 *Dont forget to stop them when you are not using them.*
 
-```
+```bash
 ./storybook down
 ```
 
 
 ### Storybook
 
-```
+```bash
 ./storybook composer require --dev area17/blast
 
 # Just if we need to tweak some Storybook configuration.
@@ -29,26 +29,26 @@ We'll be assuming docker and docker-compose are already installed and so the fir
 
 ### Tailwind
 
-```
+```bash
 ./storybook yarn add tailwindcss postcss autoprefixer
 ./storybook npx tailwindcss init -p
 ```
 
 When using Vite, the now default for Laravel 10, you'll have to build the assets so they be included on the rendering.
 
-```
+```bash
 ./storybook yarn run build
 ```
 
 ### Running Storybook
 
-```
+```bash
 ./storybook php artisan blast:launch
 ```
 
 For easier accessibility, we create a symlink named `stories` on our root folder. This is where we place our stories.
 
-```
+```bash
 ln -s ./laravel/resources/views/stories ./stories
 ```
 
@@ -87,7 +87,7 @@ Here's an example.
 
 A very good use case for this project is the development of components for redistributable packages. Let's see how we can do a setup for this.
 
-```
+```bash
 mkdir laravel/packages
 ln -s ./laravel/packages ./packages
 
@@ -96,6 +96,7 @@ git clone https://github.com/26B/backstate/ ./packages/backstate
 ```
 
 Add the repository to your `./laravel/composer.json`.
+
 ```json
 "repositories": [
   {
@@ -114,7 +115,7 @@ Add the repository to your `./laravel/composer.json`.
 
 And now we can require the package.
 
-```
+```bash
 ./storybook composer require --dev "26b/backstate": "@dev",
 ```
 
@@ -139,13 +140,13 @@ And now we can require the package.
 
 Ensure that `./laravel/.env` has the correct url and port.
 
-```
+```bash
 APP_URL=http://localhost:8000
 ```
 
 Ensure `./laravel/tailwind.config.js` has the content resources defined.
 
-```json
+```
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     content: [
