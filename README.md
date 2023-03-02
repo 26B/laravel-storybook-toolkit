@@ -151,6 +151,7 @@ Build the assets and run Storybook again.
 - ~~Updating composer currently requires a restart of the laravel container. Could be improved by using nginx instead of the internal server.~~
 - Might share the `./laravel/resources/views/components` for direct component testing.
 - Might share the `./laravel/tests` to add tests to the components.
+- Maybe remove the database container and just use sqlite for any need that might arise.
 
 
 ## Troubleshooting
